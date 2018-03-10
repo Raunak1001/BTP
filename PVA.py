@@ -56,9 +56,9 @@ def buildString(newAtom):
 	# print finString
 	return finString
 
-def createMainAtom(data,counter,num):
+def createMainAtom(data,counter,num,connectingAtom):
 	length=len(data)
-	newAtom=list(data[length-num+4].split())
+	newAtom=list(data[length-num+connectingAtom].split())
 	print newAtom[4]
 	newAtom[1]=counter
 	sourceAtom=data[0].split()
@@ -118,17 +118,27 @@ units=input("Enter the numbher of repeating units: ")
 startHydrogen=6
 endHydrogen=12
 num=15
+connectingAtom=4
 startMolecule=createStartMolecule(originalData,num,startHydrogen,endHydrogen)
 data=list(originalData)
 del data[startHydrogen-1]
-del data[endHydrogen-2]
+
+if startHydrogen <endHydrogen:
+	endHydrogen=endHydrogen-1
+
+if startHydrogen<connectingAtom:
+	connectingAtom=connectingAtom-1
+
+del data[endHydrogen-1]
+
+if endHydrogen<connectingAtom:
+	connectingAtom=connectingAtom-1
+
 for i in range(1,units-1):
-	if i==1:
-		counter=createMainAtom(data,counter,num-1)
-	elif i>1:
-		counter=createMainAtom(data,counter,num-1)	
+	counter=createMainAtom(data,counter,num-1,connectingAtom)	
 	counter=replicate(data,num-2,counter)
-counter=createMainAtom(data,counter,num-1)	
+
+counter=createMainAtom(data,counter,num-1,connectingAtom)	
 createLastMolecule(data,num-1,counter,originalData,startHydrogen)
 f.close()
 f=open("PVA_new.pdb",'w')
