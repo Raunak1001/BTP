@@ -20,7 +20,6 @@ def createMainAtom(data,counter,num,connectingAtom):
 	length=len(data)
 	newAtom=list(data[length-num+connectingAtom].split())
 	newAtom[2]=data[0].split()[2]
-	# print newAtom[4]
 	newAtom[1]=counter
 	sourceAtom=data[0].split()
 	mainAtom=data[1].split()
@@ -49,7 +48,6 @@ def  replicate(data,num,counter):
 		counter=counter+1
 	return counter
 
-	# print sourceAtom
 def  createLastMolecule(data,num,counter,originalMolecule,startHydrogen):
 	length=len(data)-1
 	sourceAtom=data[0].split()

@@ -20,7 +20,6 @@ else:
 	sartMoleculeConnectingData[connectingAtom-1].append(num)	
 
 replicateConnectingData=ConnectingData.createReplicateConnectionData(connectionData,startHydrogen,endHydrogen,num)
-# print replicateConnectingData
 counter=StringBuilder.initialiseCounter(originalData)
 units=input("Enter the numbher of repeating units: ")
 startMolecule=AtomCreate.createStartMolecule(originalData,num,startHydrogen,endHydrogen)
@@ -57,10 +56,7 @@ for i in range(1,units-1):
 		j=num-2
 
 	newConnectionData[0].append(connectingAtom+counter-num+1-j)
-	print connectingAtom+counter-num+1-j
-	print counter
 	newConnectionData[connectingAtom-1].append(counter)
-	# print newConnectionData
 	finalConnectionData=finalConnectionData + (newConnectionData)
 
 counter=AtomCreate.createMainAtom(data,counter,num-1,connectingAtom)	
@@ -69,11 +65,8 @@ if units==2:
 	newConnection[0].append(counter-1+connectingAtom-num)
 else:
 	newConnection[0].append(counter-1+connectingAtom-num+1)	
-print counter
-print counter-1+connectingAtom-num+2
 AtomCreate.createLastMolecule(data,num-1,counter,originalData,startHydrogen)
 finalConnectionData = finalConnectionData + (newConnection)
-# print(finalConnectionData)
 
 f.close()
 f=open(fileName+"_"+str(units)+".pdb",'w')

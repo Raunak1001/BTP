@@ -58,5 +58,4 @@ def buildString(newAtom):
 		spaceZ="   "
 		
 	finString=str(newAtom[0])+spaces+str(newAtom[1])+ "  " +str(newAtom[2]) +"           "+str(newAtom[3])+spaceX+str(newAtom[4])+spaceY+str(newAtom[5])+spaceZ+str(newAtom[6])+"                       "+str(newAtom[7])	
-	# print finString
 	return finString
