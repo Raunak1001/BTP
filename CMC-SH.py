@@ -153,6 +153,7 @@ def buildString(newAtom):
 def createMainAtom(data,counter,num,connectingAtom):
 	length=len(data)
 	newAtom=list(data[length-num+connectingAtom].split())
+	newAtom[2]='C'
 	# print newAtom[4]
 	newAtom[1]=counter
 	sourceAtom=data[0].split()
@@ -204,12 +205,12 @@ def  createLastMolecule(data,num,counter,originalMolecule,startHydrogen):
 
 
 
-f= open("./PVA.pdb","r")
+f= open("./CMC-SH.pdb","r")
 fileData=f.readlines()
-startHydrogen=6
-endHydrogen=12
-num=15
-connectingAtom=4
+startHydrogen=8
+endHydrogen=16
+num=64
+connectingAtom=15
 
 originalData=fileData[1:num+1]
 connectionData=fileData[num+1:]
@@ -277,7 +278,7 @@ finalConnectionData = finalConnectionData + (newConnection)
 # print(finalConnectionData)
 
 f.close()
-f=open("PVA_new.pdb",'w')
+f=open("CMC-SH_new.pdb",'w')
 finalMolecule=startMolecule+data[num-2:]
 # finalMolecule.append(data)
 for atom in finalMolecule:
