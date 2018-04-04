@@ -2,13 +2,13 @@ import StringBuilder
 import ConnectingData
 import AtomCreate
 
-
-f= open("./CMC-SH.pdb","r")
+fileName=str(raw_input("Enter File Name: "))
+f= open("./"+fileName+".pdb","r")
 fileData=f.readlines()
-startHydrogen=8
-endHydrogen=16
-num=64
-connectingAtom=15
+startHydrogen=input("Enter Starting Hydrogen: ")
+endHydrogen=input("Enter End Hydrogen: ")
+num=input("Total Atoms: ")
+connectingAtom=input("Connecting Atom Number: ")
 
 originalData=fileData[1:num+1]
 connectionData=fileData[num+1:]
@@ -76,7 +76,7 @@ finalConnectionData = finalConnectionData + (newConnection)
 # print(finalConnectionData)
 
 f.close()
-f=open("CMC-SH_new.pdb",'w')
+f=open(fileName+"_"+str(units)+".pdb",'w')
 finalMolecule=startMolecule+data[num-2:]
 # finalMolecule.append(data)
 for atom in finalMolecule:

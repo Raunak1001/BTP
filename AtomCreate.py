@@ -19,7 +19,7 @@ def createStartMolecule(data,num,startHydrogen,endHydrogen):
 def createMainAtom(data,counter,num,connectingAtom):
 	length=len(data)
 	newAtom=list(data[length-num+connectingAtom].split())
-	newAtom[2]='C'
+	newAtom[2]=data[0].split()[2]
 	# print newAtom[4]
 	newAtom[1]=counter
 	sourceAtom=data[0].split()
