@@ -72,6 +72,7 @@ f.close()
 f=open(fileName+"_"+str(units)+".pdb",'w')
 finalMolecule=startMolecule+data[num-2:]
 # finalMolecule.append(data)
+f.write("Remark..\n")
 for atom in finalMolecule:
 	atom=str(atom)
 	atom=atom.strip('\n')
